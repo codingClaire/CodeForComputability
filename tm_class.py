@@ -2,9 +2,7 @@ import numpy as np
 
 
 class TuringMachine:
-    self.data
-
-    def __init__(self, states, start_state, end_states, stop_step):
+    def __init__(self, states, start_state, end_states, file_name,stop_step):
         self.states = states
         self.states_num = len(states)
         self.start_state = start_state
@@ -13,10 +11,8 @@ class TuringMachine:
         self.next_state = np.zeros(
             (self.states_num, self.states_num), dtype=int)
         self.next_act = np.zeros((self.states_num, self.states_num), dtype=int)
-
-    def load_quadruples_data(self, filename):
-        f = open(filename, "r", encoding='utf-8')
-        self.data = f.readlines()
+        f = open(file_name, "r", encoding='utf-8')
+        self.data = f.readlines() # 图灵机四元组
 
     def get_machine_quadruples(self):
         act2num = {"L": 0, "R": 1, "0": 2, "1": 3}  # 四种操作
@@ -69,5 +65,5 @@ if __name__ == '_ _main_ _':
     end_states = [26, 25, 20, 16, 28, 31]
     start_state = 1
     file_name = "./finite_automaton.txt"
-    tm_for_min = TuringMachine(states, start_state, end_states)
+    tm_for_min = TuringMachine(states, start_state,end_states,file_name,stop_step)
     tm_for_min.get_machine_quadruples(file_name)
