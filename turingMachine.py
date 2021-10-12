@@ -96,8 +96,8 @@ class minValueTuringMachine(turingMachine):
 
 class blankNoHaltTuringMachine(turingMachine):
     def __init__(self):
-        states = [i for i in range(1, 24)]
-        end_states = [18,23]
+        states = [i for i in range(1, 26)]
+        end_states = [18,23,25]
         start_state = 1
         file_name="1halt_fa.txt"
         super(blankNoHaltTuringMachine,self).__init__(states,start_state,end_states,file_name)
@@ -105,8 +105,8 @@ class blankNoHaltTuringMachine(turingMachine):
 if __name__ == '__main__':
     tm1=minValueTuringMachine()
     tm1.get_machine_picture()
-    #tm1.test_tm()
+    tm1.test_tm()
 
     tm2 = blankNoHaltTuringMachine()
     tm2.get_machine_picture()
-    #tm2.test_tm()
+    tm2.test_tm()
